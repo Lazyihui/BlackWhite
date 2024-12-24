@@ -23,6 +23,9 @@ cc.Class({
         //Collision
         // var collision = cc.director.getCollisionManager();
         // collision.enabled = true;
+
+        cc.director.getCollisionManager().enabled = true;
+        cc.director.getPhysicsManager().enabled = true;
     },
 
     start() {
@@ -52,6 +55,10 @@ cc.Class({
             case cc.macro.KEY.down:
                 // this.moveDir.y = -1;
                 break;
+
+            case cc.macro.KEY.k:
+
+                break;
             default:
                 break;
         }
@@ -71,6 +78,10 @@ cc.Class({
             case cc.macro.KEY.down:
                 this.moveDir.y = 0;
                 break;
+
+            case cc.macro.KEY.k:
+
+                break;
             default:
                 break;
         }
@@ -81,6 +92,9 @@ cc.Class({
             this.node.position = this.node.position.add(this.moveDir.normalize().mul(this.moveSpeed * dt));
         }
     },
-    //#endregion
 
+    Jump(dt) {
+
+
+    }
 });
