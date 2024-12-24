@@ -34,6 +34,13 @@ cc.Class({
 
     update(dt) {
         this.Move(dt);
+        if (this.node.position.x < -16.387) {
+            this.node.position = cc.v2(1051.59906, this.node.position.y);
+        }
+
+        if (this.node.position.x > 1051.599061) {
+            this.node.position = cc.v2(-16.387, this.node.position.y);
+        }
     },
 
     //#region 移动
