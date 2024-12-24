@@ -24,6 +24,10 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
+        // Player: {
+        //     default: null,
+        //     type: cc.Node,
+        // },
         
     },
 
@@ -31,9 +35,22 @@ cc.Class({
 
     // onLoad () {},
 
-    start () {
+    start() {
 
     },
 
-    // update (dt) {},
+    update(dt) {
+        // this.pos = this.Player.position;
+
+        // this.node.position = this.pos;
+        // if (this.node.position.x < -16.387) {
+        //     this.node.position = cc.v2(1051.59906, this.node.position.y);
+        // }
+
+        // x = this.node.position.x - pos.x
+
+        // if (x < 0.5) {
+        //     console.log("flag reached")
+        // }
+    },
 });

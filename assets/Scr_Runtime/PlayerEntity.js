@@ -11,6 +11,7 @@ cc.Class({
     properties:
     {
         moveSpeed: 0,
+        winpos: cc.Vec2,
     },
 
     onLoad() {
@@ -40,6 +41,14 @@ cc.Class({
 
         if (this.node.position.x > 1051.599061) {
             this.node.position = cc.v2(-16.387, this.node.position.y);
+        }
+
+
+        let x = Math.abs(this.node.position.x - this.winpos.x);
+        console.log(x);
+        // 
+        if (x<600&&x>580) {
+            console.log("Win");
         }
     },
 
