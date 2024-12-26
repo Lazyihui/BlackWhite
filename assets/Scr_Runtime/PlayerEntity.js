@@ -12,6 +12,12 @@ cc.Class({
     {
         moveSpeed: 0,
         winpos: cc.Vec2,
+
+        VictoryText:
+        {
+            default: null,
+            type: [cc.Label]
+        },
     },
 
     onLoad() {
@@ -27,10 +33,12 @@ cc.Class({
 
         cc.director.getCollisionManager().enabled = true;
         cc.director.getPhysicsManager().enabled = true;
+
+        isJump = false;
     },
 
     start() {
-
+        this.VictoryText.node.active = false;
     },
 
     update(dt) {
@@ -47,8 +55,9 @@ cc.Class({
         let x = Math.abs(this.node.position.x - this.winpos.x);
         console.log(x);
         // 
-        if (x<600&&x>580) {
+        if (x < 600 && x > 580) {
             console.log("Win");
+            this.VictoryText.node.active = true;
         }
     },
 
@@ -73,7 +82,7 @@ cc.Class({
                 break;
 
             case cc.macro.KEY.k:
-
+                this.Jump();
                 break;
             default:
                 break;
@@ -109,8 +118,10 @@ cc.Class({
         }
     },
 
-    Jump(dt) {
-
-
+    Jump() {
+        if (this.node.getComponent(cc.RigidBody).linearVelocity.y === 0) {
+            this.node.getComponent(cc.RigidBody).applyLinearImpulse(cc.v2(0, 150), this.node.getComponent(cc.RigidBody).getWorldCenter(), true);
+        }
     }
+
 });
